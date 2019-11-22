@@ -56,6 +56,9 @@ int main() {
    
    std::cout << "Printing array2 elements: " << std::endl;
    print2(array2);
+   // Deallocate the memory
+   for (unsigned i=0; i<ROW; i++)
+      delete []array2[i];
 
    // Third Method
    int** array3 = new int*[ROW];
@@ -68,4 +71,10 @@ int main() {
 
    std::cout << "Printing array3 elements: " << std::endl;
    print2(array3);
+   // Deallocate memory
+   for (unsigned i=0; i<ROW; i++)
+      delete []array3[i];
+   delete []array3;
+
+   return 0;
 } 
