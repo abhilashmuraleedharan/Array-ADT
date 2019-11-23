@@ -9,6 +9,8 @@
 #include <iostream>
 #include <stdexcept>
 
+#include "enumerations.h"
+
 template <typename T>
 class Array {
    public:
@@ -26,24 +28,37 @@ class Array {
       // Overloaded Assignment operator to ensure deep copy
       Array & operator=(const Array & other);
 
-      // Available Operations
+      // Available data operations
       void display() const;
-      bool append(T item);
+      void append(T item);
+      void insertItem(int index, T item); 
       T deleteItem(int index);
-      int search(T item) const;
+      int linearSearch(T item, LinearSearchStrategy strategy=NO_STRATEGY) const;
+      int binarySearch(T item) const;
       T getItem(int index) const;
-      bool setItem(int index, T value); 
       T getMax() const;
       T getMin() const;
       Array & reverse() const;
       Array & rotate() const;
-      inline int length() const;
-      inline int size() const;
+
+      // Available information operations
+      inline int length() const; // Returns the length of the Array
+      inline int size() const;  // Returns the size of the Array
+
+      // Returns TRUE if the Array is full
+      inline bool isFull() const {
+         return length_ == size_;
+      }
 
    private:
       T *arr_;      // Points to the array allocated in heap memory.
       int size_;    // Holds the size of the array.
       int length_;  // Holds the length of the array.
+
+      // Private helper methods
+      void _expand();  // Increase the size of the array to accomodate
+                       // new items.
+      void _initialize();  // Initialize the array
 };
 
 // Finish including the rest of the header from the additional header file.
