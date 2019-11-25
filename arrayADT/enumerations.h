@@ -27,7 +27,7 @@
  *    positions are.
  */
 enum LinearSearchStrategy {
-   NO_STRATEGY = 0,
+   DEFAULT = 0,
    TRANSPOSITION,
    MOVE_TO_FRONT,
 };

@@ -33,7 +33,7 @@ class Array {
       void append(T item);
       void insertItem(int index, T item); 
       T deleteItem(int index);
-      int linearSearch(T item, LinearSearchStrategy strategy=NO_STRATEGY) const;
+      int linearSearch(T item, LinearSearchStrategy strategy=DEFAULT) const;
       int binarySearch(T item) const;
       T getItem(int index) const;
       T getMax() const;
