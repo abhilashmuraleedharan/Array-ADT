@@ -25,6 +25,10 @@
  *    searched again. However, here unlike transposition strategy,
  *    it's difficult to predict where the swapped elements new 
  *    positions are.
+ *
+ * c) Default
+ *    Simply return the index of the key element if found.
+ *    Doesn't perform any swapping.
  */
 enum LinearSearchStrategy {
    DEFAULT = 0,
