@@ -154,6 +154,7 @@ T Array<T>::deleteItem(int index) {
 
 /*
  * Performs Linear Search for the key item as per given strategy.
+ * Refer enumerations.h to find more details about the LinearSearchStrategy enum.
  * Returns the index of the key if found. Else returns -1.
  */
 template <typename T>
@@ -188,6 +189,33 @@ int Array<T>::linearSearch(T keyItem, LinearSearchStrategy strategy) const {
    }
    // Item was not found
    return -1;
+}
+
+/*
+ * Binary Search
+ * Can be performed only on sorted array.
+ * 
+ * TO DO!!!!!!!! 
+ * Perform search only after checking if array is sorted.
+ * If array is not sorted, call linearSearch with Default strategy instead.
+ * 
+ * Returns the index if the keyItem is found
+ */
+template <typename T>
+int Array<T>::binarySearch(T item) const {
+   int l = 0, h = length_ - 1, mid = 0;
+
+   while (l <= h) {
+      mid = (l + h)/2;
+      if (item == arr_[mid])
+         return mid;
+      else if (item < arr_[mid])
+         h = mid - 1;
+      else
+         l = mid + 1;
+   }
+   // Key item not found. Return -1
+   return -1;         
 }
 
 // Private Helper methods
